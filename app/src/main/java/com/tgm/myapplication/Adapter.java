@@ -9,18 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private List<Model> list;
     deleteRecord deleteRecord;
+    updateRecord updateRecord;
 
-    public Adapter(List<Model> list, deleteRecord deleteRecord) {
+    public Adapter(List<Model> list, deleteRecord deleteRecord, updateRecord updateRecord) {
         this.list = list;
         this.deleteRecord = deleteRecord;
+        this.updateRecord = updateRecord;
     }
 
     @NonNull
@@ -34,9 +34,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.id.setText(list.get(position).getId().concat("."));
         holder.name.setText(list.get(position).getName());
-        holder.pass.setText(list.get(position).getName());
+        holder.pass.setText(list.get(position).getPass());
         holder.delete.setOnClickListener(view -> {
             deleteRecord.delete(Integer.parseInt(list.get(position).getId()), holder.getAdapterPosition());
+        });
+        holder.update.setOnClickListener(view -> {
+            updateRecord.update(Integer.parseInt(list.get(position).getId()), holder.getAdapterPosition());
         });
     }
 
@@ -48,6 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView id, name, pass;
         ImageButton delete, update;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.id);
@@ -57,7 +61,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             update = itemView.findViewById(R.id.updateBtn);
         }
     }
-    interface deleteRecord{
+
+    interface deleteRecord {
         void delete(int id, int position);
+    }
+
+    interface updateRecord {
+        void update(int id, int position);
     }
 }

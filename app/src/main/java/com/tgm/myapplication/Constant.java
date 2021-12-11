@@ -10,4 +10,6 @@ public class Constant {
     public static final String getUrl = "http://192.168.43.252/get_data.php";
     // for deleting data from server
     public static final String deleteUrl = "http://192.168.43.252/delete_data.php";
+    // for updating data from server
+    public static final String updateUrl = "http://192.168.43.252/update_data.php";
 }

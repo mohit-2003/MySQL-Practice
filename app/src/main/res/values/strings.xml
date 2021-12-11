@@ -4,4 +4,5 @@
     <string name="enter_your_password">Enter Your Password</string>
     <string name="send_data_to_server">Send Data to Server</string>
     <string name="get_data_from_server">Get Data from Server</string>
+    <string name="update">Update</string>
 </resources>
