@@ -8,4 +8,6 @@ public class Constant {
     public static final String sendUrl = "http://192.168.43.252/send_data.php";
     // for get data from server
     public static final String getUrl = "http://192.168.43.252/get_data.php";
+    // for deleting data from server
+    public static final String deleteUrl = "http://192.168.43.252/delete_data.php";
 }

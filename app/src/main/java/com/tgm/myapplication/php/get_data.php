@@ -20,21 +20,22 @@ if (!$conn) {
 	die();
 }
 
-$sql = "SELECT name, pass FROM details;";
+$sql = "SELECT id, name, pass FROM details;";
 //creating an statment with the query
 $stmt = $conn->prepare($sql);
- 
+
 //executing that statment
 $stmt->execute();
- 
-//binding results for that statment 
-$stmt->bind_result($name, $pass);
+
+//binding results for that statment
+$stmt->bind_result($id, $name, $pass);
  $data = array();
 //looping through all the records
 while($stmt->fetch()){
  
  //pushing fetched data in an array 
  $temp = [
+ 'id'=>$id,
  'name'=>$name,
  'pass'=>$pass
  ];
