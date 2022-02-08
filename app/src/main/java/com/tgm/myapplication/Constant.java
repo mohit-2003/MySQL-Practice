@@ -2,7 +2,10 @@ package com.tgm.myapplication;
 
 public class Constant {
 
+    
     // for connection
+    // must coonected with same wifi
+    // turn off the firewall
     public static final String connUrl = "http://192.168.43.252/connection.php";
     // for send data to server
     public static final String sendUrl = "http://192.168.43.252/send_data.php";
